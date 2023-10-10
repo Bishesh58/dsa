@@ -34,6 +34,21 @@ Given a string s, return true if it is a palindrome, or false otherwise.
     # - first we convert to lowercase
     # - second remove any special character or only have alphanumeric value by using build in method or not
 
+#Not so optimise [Time: O(n), Space:O(n)]
+def isPalindrome(s: str) -> bool:
+    s = ''.join(c.lower() for c in s if c.isalnum()) #creates new string (extra memory O(n))
+    left, right = 0, len(s) - 1
+    
+    while left < right:
+        if s[left] != s[right]:
+            return False
+        left += 1
+        right -= 1
+    
+    return True
+
+
+
 class Solution:
     def isPalindrome(self, s: str) -> bool:
         #convert to lowercase string
